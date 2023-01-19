@@ -1,31 +1,24 @@
 <script>
-import axios from 'axios';
+import AppHeader from "./components/AppHeader.vue";
+import AppMain from "./components/AppMain.vue";
+
 export default {
   name: 'App',
-  data() {
-    return {
-      projects: []
-    }
-  },
   components: {
+    AppHeader,
+    AppMain,
 
-  },
-  created() {
-    this.getProjects();
-  },
-  methods: {
-    getProjects() {
-      axios.get('http://127.0.0.1:8000/api/projects').then(resp => {
-        this.projects = resp.data.results;
-      })
-    }
   }
 }
 
 </script>
 
 <template>
-  <h1>Front Office Page</h1>
+  <AppHeader />
+  <main>
+    <AppMain />
+  </main>
+
 </template>
 
 <style lang="scss">
